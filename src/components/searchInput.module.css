@@ -8,8 +8,8 @@ button {
 form {
   display: flex;
   align-items: center;
-  width: 40%;
-  height: 100%;
+  width: 50%;
+  height: 35px;
 }
 
 .search {

@@ -8,7 +8,6 @@ const SearchInput = ({ handleSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <FontAwesomeIcon icon="fa-light fa-magnifying-glass" />
       <input value={search} placeholder="Search.." className={styles.search} />
       <button type="submit" className={styles.btnSearch}>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
