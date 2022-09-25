@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.playerBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnails {
+  cursor: pointer;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  color: #959595;
+  font-size: 0.8em;
+  font-weight: 600;
+}
