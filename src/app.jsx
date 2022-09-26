@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react';
 import Header from './components/header';
 import axios from 'axios';
 import PlayerList from './components/playerList';
+import Loading from './components/loading';
 
 const App = () => {
+  /* fetch url */
+  const baseUrl = 'https://www.googleapis.com/youtube/v3/';
+
   /* State */
   const [mode, setMode] = useState('light'); // dark mode, light mode
   const [playerList, setPlayerList] = useState([]); // 화면에 나타날 playerlist data
@@ -15,7 +19,24 @@ const App = () => {
    * @return
    */
   const handleSubmit = (search) => {
-    //console.log('search : ' + search);
+    console.log(search);
+    const fetchSearch = async (search) => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          baseUrl +
+            'search?part=snippet&maxResults=25&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM&q=' +
+            search,
+        );
+        console.log(response.data.items);
+        setPlayerList(response.data.items);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSearch(search);
   };
 
   /**
@@ -28,7 +49,8 @@ const App = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          'https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=50&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM',
+          baseUrl +
+            'videos?part=snippet&chart=mostPopular&maxResults=50&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM',
         );
         setPlayerList(response.data.items);
       } catch (e) {
@@ -45,7 +67,7 @@ const App = () => {
     return (
       <>
         <Header handleSubmit={handleSubmit} mode={mode} />
-        <div>로딩중...</div>
+        <Loading />
       </>
     );
   }
