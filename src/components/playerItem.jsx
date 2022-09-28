@@ -3,7 +3,7 @@ import styles from './playerItem.module.css';
 
 const PlayerItem = ({ player }) => {
   const { title, thumbnails, channelTitle, publishedAt } = player.snippet;
-  const { url } = thumbnails.medium;
+  const { url, width, height } = thumbnails.medium;
   return (
     <div className={styles.playerBox}>
       <img src={url} alt="" className={styles.thumbnails} />

@@ -8,9 +8,14 @@
 }
 
 .thumbnails {
+  display: block;
   cursor: pointer;
   border: 1px solid black;
   margin-bottom: 10px;
+  max-width: 355px;
+  max-height: 201px;
+  width: auto;
+  height: auto;
 }
 
 .title {

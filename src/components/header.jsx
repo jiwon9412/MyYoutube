@@ -4,10 +4,10 @@ import SearchInput from './searchInput';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Header = ({ handleSubmit, mode }) => {
+const Header = ({ handleSubmit, mode, goHome }) => {
   return (
     <div className={styles.wrapHaeder}>
-      <div className={styles.logo}></div>
+      <div className={styles.logo} onClick={goHome}></div>
       <SearchInput handleSubmit={handleSubmit} />
       <div className={styles.info}>
         {mode === 'light' && (

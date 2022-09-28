@@ -63,10 +63,32 @@ const App = () => {
     fetchData();
   }, []);
 
+  /**
+   * 로고 클릭 시 첫 화면으로 돌아오기
+   */
+  const goHome = () => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          baseUrl +
+            'videos?part=snippet&chart=mostPopular&maxResults=50&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM',
+        );
+        setPlayerList(response.data.items);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  };
+
   if (loading === true) {
     return (
       <>
-        <Header handleSubmit={handleSubmit} mode={mode} />
+        <Header handleSubmit={handleSubmit} mode={mode} goHome={goHome} />
         <Loading />
       </>
     );
@@ -74,7 +96,7 @@ const App = () => {
 
   return (
     <>
-      <Header handleSubmit={handleSubmit} mode={mode} />
+      <Header handleSubmit={handleSubmit} mode={mode} goHome={goHome} />
       <PlayerList list={playerList} />
     </>
   );
