@@ -3,15 +3,19 @@ import Header from './components/header';
 import axios from 'axios';
 import PlayerList from './components/playerList';
 import Loading from './components/loading';
+import './app.css';
+import { useSelector } from 'react-redux';
 
 const App = () => {
   /* fetch url */
   const baseUrl = 'https://www.googleapis.com/youtube/v3/';
 
   /* State */
-  const [mode, setMode] = useState('light'); // dark mode, light mode
   const [playerList, setPlayerList] = useState([]); // 화면에 나타날 playerlist data
   const [loading, setLoading] = useState(false); // loading 중 여부
+
+  /**reducers state */
+  const darkmode = useSelector((state) => state.mode.darkmode);
 
   /**
    * 검색 시 검색 값을 받아와서 데이터 통신을 하여 playerList 상태를 변화시키는 메서드
@@ -87,18 +91,18 @@ const App = () => {
 
   if (loading === true) {
     return (
-      <>
-        <Header handleSubmit={handleSubmit} mode={mode} goHome={goHome} />
+      <div className={darkmode ? 'dark' : 'light'}>
+        <Header handleSubmit={handleSubmit} goHome={goHome} />
         <Loading />
-      </>
+      </div>
     );
   }
 
   return (
-    <>
-      <Header handleSubmit={handleSubmit} mode={mode} goHome={goHome} />
+    <div className={darkmode ? 'dark' : 'light'}>
+      <Header handleSubmit={handleSubmit} goHome={goHome} />
       <PlayerList list={playerList} />
-    </>
+    </div>
   );
 };
 

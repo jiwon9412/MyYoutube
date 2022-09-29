@@ -1,0 +1,63 @@
+.wrapHaeder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0 30px;
+
+  .logo {
+    width: 150px;
+    height: 80px;
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center center;
+
+    cursor: pointer;
+  }
+
+  .logoDark {
+    width: 150px;
+    height: 80px;
+    background-image: url('../img/darklogo.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center center;
+
+    cursor: pointer;
+  }
+
+  .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .darkMode,
+    .lightMode {
+      margin-right: 20px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+    .darkMode {
+      color: #000000;
+    }
+    .lightMode {
+      color: #fff;
+    }
+
+    .username {
+      border-radius: 50%;
+      background-color: #ff1700;
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 35px;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
