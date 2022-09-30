@@ -116,7 +116,7 @@ const App = () => {
       {selectedVideo ? (
         <VideoPlayer list={playerList} />
       ) : (
-        <PlayerList list={playerList} />
+        <PlayerList list={playerList} display="grid" />
       )}
     </div>
   );

@@ -2,12 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  .video {
-  }
+  width: 100%;
+  height: 100vh;
 
   .description {
-    height: 200px;
-    background-color: #ccc;
+    width: 100%;
+    height: 300px;
+    padding: 10px 10px;
+  }
+
+  .tag {
+    color: #0350ff;
+    margin-right: 10px;
+  }
+
+  .title {
+    font-size: 1.3em;
+  }
+
+  .more {
+    display: block;
+    font-size: 0.8em;
+    color: #808080;
+    cursor: pointer;
+    margin-top: 10px;
   }
 }

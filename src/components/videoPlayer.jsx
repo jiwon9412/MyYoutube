@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './videoPlayer.module.scss';
 import Video from './video';
+import PlayerList from './playerList';
 
 const VideoPlayer = ({ list }) => {
   return (
@@ -9,7 +10,9 @@ const VideoPlayer = ({ list }) => {
         <Video />
       </div>
 
-      <div className={styles.list}></div>
+      <div className={styles.list}>
+        <PlayerList list={list} display="list" />
+      </div>
     </div>
   );
 };
