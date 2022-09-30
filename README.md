@@ -37,6 +37,9 @@
 * Matual-UI (MUI) - grid system
 * Font awesome
 
+### CSS
+* css module 방식 + scss
+
 ##
 
 ### 강의를 통해 리팩토링한 부분
