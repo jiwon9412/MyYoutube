@@ -1,0 +1,13 @@
+.videoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .video {
+  }
+
+  .description {
+    height: 200px;
+    background-color: #ccc;
+  }
+}

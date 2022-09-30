@@ -1,0 +1,9 @@
+.videoPlayerBox {
+  display: flex;
+  padding: 10px 20px;
+
+  .video {
+    display: block;
+    width: 65%;
+  }
+}

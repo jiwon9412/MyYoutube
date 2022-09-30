@@ -3,8 +3,10 @@ import Header from './components/header';
 import axios from 'axios';
 import PlayerList from './components/playerList';
 import Loading from './components/loading';
+import VideoPlayer from './components/videoPlayer';
 import './app.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectVideo } from './reducers/player';
 
 const App = () => {
   /* fetch url */
@@ -16,6 +18,9 @@ const App = () => {
 
   /**reducers state */
   const darkmode = useSelector((state) => state.mode.darkmode);
+  const selectedVideo = useSelector((state) => state.player.selectedVideo);
+
+  const dispatch = useDispatch();
 
   /**
    * 검색 시 검색 값을 받아와서 데이터 통신을 하여 playerList 상태를 변화시키는 메서드
@@ -23,7 +28,7 @@ const App = () => {
    * @return
    */
   const handleSubmit = (search) => {
-    console.log(search);
+    // console.log(search);
     const fetchSearch = async (search) => {
       setLoading(true);
       try {
@@ -41,6 +46,7 @@ const App = () => {
       }
     };
     fetchSearch(search);
+    dispatch(selectVideo(null));
   };
 
   /**
@@ -67,6 +73,11 @@ const App = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log(selectedVideo);
+    console.log(darkmode);
+  }, [selectedVideo]);
+
   /**
    * 로고 클릭 시 첫 화면으로 돌아오기
    */
@@ -87,6 +98,7 @@ const App = () => {
     };
 
     fetchData();
+    dispatch(selectVideo(null));
   };
 
   if (loading === true) {
@@ -101,7 +113,11 @@ const App = () => {
   return (
     <div className={darkmode ? 'dark' : 'light'}>
       <Header handleSubmit={handleSubmit} goHome={goHome} />
-      <PlayerList list={playerList} />
+      {selectedVideo ? (
+        <VideoPlayer list={playerList} />
+      ) : (
+        <PlayerList list={playerList} />
+      )}
     </div>
   );
 };
