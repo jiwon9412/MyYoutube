@@ -21,7 +21,7 @@ const PlayerList = ({ list, display }) => {
         {list
           .filter((item, index) => index < 10)
           .map((item) => (
-            <PlayerItem player={item} display="list" />
+            <PlayerItem player={item} display="list" key={item.id} />
           ))}
       </div>
     );

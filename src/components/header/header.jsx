@@ -21,10 +21,11 @@ const Header = ({ handleSubmit, goHome }) => {
   };
   return (
     <div className={styles.wrapHaeder}>
-      <div
-        className={darkmode ? styles.logoDark : styles.logo}
-        onClick={goHome}
-      ></div>
+      <div className={styles.logoBox} onClick={goHome}>
+        <img src="/img/logo.png" alt="" className={styles.logo} />
+        <h1>Youtube</h1>
+      </div>
+
       <SearchInput handleSubmit={handleSubmit} />
       <div className={styles.info}>
         {!darkmode && (

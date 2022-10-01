@@ -32,15 +32,22 @@ const App = () => {
     const fetchSearch = async (search) => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          baseUrl +
-            'search?part=snippet&maxResults=25&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM&q=' +
-            search,
-        );
-        console.log(response.data.items);
-        setPlayerList(response.data.items);
+        const response = await axios
+          .get(
+            baseUrl +
+              `search?part=snippet&maxResults=25&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM&q=${search}&type=video`,
+          )
+          .then((results) =>
+            results.data.items.map((item) => ({
+              ...item,
+              id: item.id.videoId,
+            })),
+          );
+
+        console.log(response);
+        setPlayerList(response);
       } catch (e) {
-        console.log(e);
+        console.log(`error : ${e}`);
       } finally {
         setLoading(false);
       }
