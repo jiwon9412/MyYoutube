@@ -37,9 +37,7 @@ const PlayerItem = ({ player, display }) => {
           onClick={() => dispatch(selectVideo(player))}
         />
         <div className={styles.content}>
-          <div className={styles.title}>
-            {title.length > 45 ? title.substring(0, 45) + '...' : title}
-          </div>
+          <div className={styles.title}>{title}</div>
           <div className={styles.chnnelTitle}>{channelTitle}</div>
           <div className={styles.date}>{publishedAt.substring(0, 10)}</div>
         </div>

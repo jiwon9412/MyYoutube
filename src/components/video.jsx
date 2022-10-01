@@ -39,17 +39,18 @@ const Video = () => {
 
   return (
     <div className={styles.videoBox}>
-      <iframe
-        id="ytplayer"
-        type="text/html"
-        width="100%"
-        height="600"
-        src={'https://www.youtube.com/embed/' + id + '?autoplay=1'}
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
-
-      <div className={styles.description}>
+      <div className={styles.player}>
+        <iframe
+          id="ytplayer"
+          type="text/html"
+          width="100%"
+          height="600"
+          src={'https://www.youtube.com/embed/' + id + '?autoplay=1'}
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div className={styles.contents}>
         <div>
           {tags &&
             tags
@@ -59,7 +60,7 @@ const Video = () => {
         <div className={styles.title}>{title}</div>
         <div>{channelTitle}</div>
         <hr />
-        <div>
+        <div className={styles.description}>
           {description.length > 200
             ? description.substring(0, 200)
             : description}
@@ -74,13 +75,14 @@ const Video = () => {
             ? description.substring(200, description.length)
             : ''}
           {description.length > 200 && more ? (
-            <span className={styles.more} onClick={clickMore}>
+            <span className={styles.briefly} onClick={clickMore}>
               간략히
             </span>
           ) : (
             ''
           )}
         </div>
+        <hr />
       </div>
     </div>
   );

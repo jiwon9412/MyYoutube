@@ -7,12 +7,29 @@
 
   .video {
     width: 70%;
-    height: 100%;
+    height: auto;
   }
 
   .list {
     width: 30%;
     height: 100%;
     margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .videoPlayerBox {
+    display: flex;
+    flex-direction: column;
+
+    .video {
+      width: 100%;
+      height: auto;
+    }
+
+    .list {
+      width: 100%;
+      margin-left: 0px;
+    }
   }
 }

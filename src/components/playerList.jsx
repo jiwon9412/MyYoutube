@@ -17,15 +17,13 @@ const PlayerList = ({ list, display }) => {
   }
   if (display === 'list') {
     return (
-      <>
-        <div className={styles.listVertical}>
-          {list
-            .filter((item, index) => index < 10)
-            .map((item) => (
-              <PlayerItem player={item} display="list" />
-            ))}
-        </div>
-      </>
+      <div className={styles.listVertical}>
+        {list
+          .filter((item, index) => index < 10)
+          .map((item) => (
+            <PlayerItem player={item} display="list" />
+          ))}
+      </div>
     );
   }
 };
