@@ -46,3 +46,26 @@
 1.
 2.
 
+##
+
+### 구현
+* Youtube API 활용해서 첫 화면에 인기있는 영상 25개 자동조회   
+<img src="https://user-images.githubusercontent.com/80965224/193395131-bf7e1063-fe9c-4207-bd1b-87446d9a97b8.png" width="700px">   
+   
+* 영상 검색 기능   
+<img src="https://user-images.githubusercontent.com/80965224/193395180-333ede99-6c79-44e6-983a-ce8bfcce7cdf.png" width="700px">  
+   
+* 영상 클릭 시 영상 재생 및 화면 변환  
+<img src="https://user-images.githubusercontent.com/80965224/193395229-018554e0-778d-4e9f-b369-6cbd4add9b04.png" width="700px">  
+   
+* 위 상태에서 반응형 디자인 추가   
+<img src="https://user-images.githubusercontent.com/80965224/193395241-74e5b9e0-22cf-4054-9e00-cb38b72880b8.png" width="700px">  
+   
+* 다크모드   
+<img src="https://user-images.githubusercontent.com/80965224/193395418-1e64cc7b-707e-4e8d-aac4-87f169036ebb.png" width="700px">  
+   
+
+
+
+
+   
