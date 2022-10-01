@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './header.module.scss';
-import SearchInput from './searchInput';
+import SearchInput from '../searchInput/searchInput';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleMode } from '../reducers/mode';
+import { toggleMode } from '../../reducers/mode';
 
 const Header = ({ handleSubmit, goHome }) => {
   /**dispatch */

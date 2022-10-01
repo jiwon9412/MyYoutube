@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './videoPlayer.module.scss';
-import Video from './video';
-import PlayerList from './playerList';
+import Video from '../video/video';
+import PlayerList from '../playerList/playerList';
 
 const VideoPlayer = ({ list }) => {
   return (

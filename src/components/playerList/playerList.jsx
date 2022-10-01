@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './playerList.module.css';
 import { Grid } from '@mui/material';
-import PlayerItem from './playerItem';
+import PlayerItem from '../playerItem/playerItem';
 
 const PlayerList = ({ list, display }) => {
   if (display === 'grid') {

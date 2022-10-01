@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './playerItem.module.scss';
-import { selectVideo } from '../reducers/player';
+import { selectVideo } from '../../reducers/player';
 
 const PlayerItem = ({ player, display }) => {
   const { title, thumbnails, channelTitle, publishedAt } = player.snippet;

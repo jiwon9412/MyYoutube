@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Header from './components/header';
+import Header from './components/header/header';
 import axios from 'axios';
-import PlayerList from './components/playerList';
-import Loading from './components/loading';
-import VideoPlayer from './components/videoPlayer';
+import PlayerList from './components/playerList/playerList';
+import Loading from './components/loading/loading';
+import VideoPlayer from './components/videoPlayer/videoPlayer';
 import './app.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectVideo } from './reducers/player';
@@ -114,7 +114,7 @@ const App = () => {
     <div className={darkmode ? 'dark' : 'light'}>
       <Header handleSubmit={handleSubmit} goHome={goHome} />
       {selectedVideo ? (
-        <VideoPlayer list={playerList} />
+        <VideoPlayer list={playerList} className="videoPlayer" />
       ) : (
         <PlayerList list={playerList} display="grid" />
       )}

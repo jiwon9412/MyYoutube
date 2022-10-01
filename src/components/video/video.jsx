@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './video.module.scss';
-import YouTube from 'react-youtube';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
@@ -12,14 +11,6 @@ const Video = () => {
   const selectedVideo = useSelector((state) => state.player.selectedVideo);
 
   const { title, channelTitle, tags, description } = selectedVideo.snippet;
-
-  const opts = {
-    width: '100%',
-    height: '100%',
-    playerVars: {
-      autoplay: 1,
-    },
-  };
 
   let id = '';
   if (selectedVideo.id.videoId) {
