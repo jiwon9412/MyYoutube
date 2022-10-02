@@ -1,0 +1,13 @@
+.dark {
+  color: #fff;
+  background-color: #202020;
+}
+
+.light {
+  color: #000000;
+  background-color: #fff;
+}
+
+.videoPlayer {
+  height: 100%;
+}

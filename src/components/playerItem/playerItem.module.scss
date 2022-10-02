@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+.playerGridBox {
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  .thumbnails {
+    display: block;
+    cursor: pointer;
+    border: 1px solid #959595;
+    margin-bottom: 10px;
+    max-width: 355px;
+    max-height: 201px;
+    width: auto;
+    height: auto;
+  }
+
+  .title {
+    margin-bottom: 10px;
+    max-height: 40px;
+    overflow: hidden;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    color: #959595;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+}
+
+.playerListBox {
+  display: flex;
+  width: 100%;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  .thumbnails {
+    display: block;
+    cursor: pointer;
+    border: 1px solid #959595;
+    margin-bottom: 10px;
+    max-width: 180px;
+    max-height: 140px;
+    width: auto;
+    height: auto;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      margin-left: 10px;
+      margin-bottom: 10px;
+      max-width: 200px;
+      max-height: 40px;
+      overflow: hidden;
+    }
+
+    .chnnelTitle {
+      margin-left: 10px;
+      font-size: 0.8em;
+      color: #959595;
+    }
+
+    .date {
+      margin-left: 10px;
+      margin-bottom: 10px;
+      font-size: 0.8em;
+      color: #959595;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .playerListBox {
+    .content {
+      .title {
+        max-width: 100%;
+      }
+    }
+  }
+}
