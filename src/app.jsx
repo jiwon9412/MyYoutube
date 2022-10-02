@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Header from './components/header/header';
-import axios from 'axios';
+
 import PlayerList from './components/playerList/playerList';
 import Loading from './components/loading/loading';
 import VideoPlayer from './components/videoPlayer/videoPlayer';
@@ -8,10 +8,7 @@ import './app.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectVideo } from './reducers/player';
 
-const App = () => {
-  /* fetch url */
-  const baseUrl = 'https://www.googleapis.com/youtube/v3/';
-
+const App = ({ youtube }) => {
   /* State */
   const [playerList, setPlayerList] = useState([]); // 화면에 나타날 playerlist data
   const [loading, setLoading] = useState(false); // loading 중 여부
@@ -32,19 +29,7 @@ const App = () => {
     const fetchSearch = async (search) => {
       setLoading(true);
       try {
-        const response = await axios
-          .get(
-            baseUrl +
-              `search?part=snippet&maxResults=25&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM&q=${search}&type=video`,
-          )
-          .then((results) =>
-            results.data.items.map((item) => ({
-              ...item,
-              id: item.id.videoId,
-            })),
-          );
-
-        console.log(response);
+        const response = await youtube.search(search);
         setPlayerList(response);
       } catch (e) {
         console.log(`error : ${e}`);
@@ -65,10 +50,7 @@ const App = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          baseUrl +
-            'videos?part=snippet&chart=mostPopular&maxResults=50&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM',
-        );
+        const response = await youtube.mostPopular();
         setPlayerList(response.data.items);
       } catch (e) {
         console.log(e);
@@ -92,10 +74,7 @@ const App = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          baseUrl +
-            'videos?part=snippet&chart=mostPopular&maxResults=50&key=AIzaSyA8pVOkvY3H29QtW2FWW9o-hBKOwq6JflM',
-        );
+        const response = await youtube.mostPopular();
         setPlayerList(response.data.items);
       } catch (e) {
         console.log(e);
