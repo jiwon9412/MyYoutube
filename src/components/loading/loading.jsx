@@ -7,7 +7,7 @@ const Loading = () => {
   return (
     <div className={styles.loadingBox}>
       <FontAwesomeIcon icon={faSpinner} className={styles.loadingIcon} />
-      Loading ...
+      <p>Loading ...</p>
     </div>
   );
 };

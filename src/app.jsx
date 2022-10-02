@@ -25,19 +25,19 @@ const App = ({ youtube }) => {
    * @return
    */
   const handleSubmit = (search) => {
-    // console.log(search);
-
-    const fetchSearch = async (search) => {
+    const getSearchData = async (search) => {
       setLoading(true);
       try {
-        youtube.search(search).then((response) => setPlayerList(response));
-      } catch (e) {
-        console.log(`error : ${e}`);
+        const response = await youtube.search(search);
+        setPlayerList(response);
+      } catch (error) {
+        console.log(`error : ${error}`);
       } finally {
         setLoading(false);
       }
     };
-    fetchSearch(search);
+
+    getSearchData(search);
     dispatch(selectVideo(null));
   };
 
@@ -47,33 +47,38 @@ const App = ({ youtube }) => {
    * @return
    */
   useEffect(() => {
-    setLoading(true);
-    try {
-      youtube.mostPopular().then((response) => setPlayerList(response));
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    console.log(selectedVideo);
-    console.log(darkmode);
-  }, [selectedVideo]);
+    const getPopularData = async () => {
+      setLoading(true);
+      try {
+        const response = await youtube.mostPopular();
+        setPlayerList(response);
+        setLoading(false);
+      } catch (error) {
+        console.log(`error : ${error}`);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getPopularData();
+  }, [youtube]);
 
   /**
    * 로고 클릭 시 첫 화면으로 돌아오기
    */
   const goHome = () => {
-    setLoading(true);
-    try {
-      youtube.mostPopular().then((response) => setPlayerList(response));
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
+    const getPopularData = async () => {
+      setLoading(true);
+      try {
+        const response = await youtube.mostPopular();
+        setPlayerList(response);
+        setLoading(false);
+      } catch (error) {
+        console.log(`error : ${error}`);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getPopularData();
 
     dispatch(selectVideo(null));
   };
