@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './header.module.scss';
 import SearchInput from '../searchInput/searchInput';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';

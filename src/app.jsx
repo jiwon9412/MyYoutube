@@ -26,11 +26,11 @@ const App = ({ youtube }) => {
    */
   const handleSubmit = (search) => {
     // console.log(search);
+
     const fetchSearch = async (search) => {
       setLoading(true);
       try {
-        const response = await youtube.search(search);
-        setPlayerList(response);
+        youtube.search(search).then((response) => setPlayerList(response));
       } catch (e) {
         console.log(`error : ${e}`);
       } finally {
@@ -47,19 +47,14 @@ const App = ({ youtube }) => {
    * @return
    */
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await youtube.mostPopular();
-        setPlayerList(response.data.items);
-      } catch (e) {
-        console.log(e);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    setLoading(true);
+    try {
+      youtube.mostPopular().then((response) => setPlayerList(response));
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -71,19 +66,15 @@ const App = ({ youtube }) => {
    * 로고 클릭 시 첫 화면으로 돌아오기
    */
   const goHome = () => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await youtube.mostPopular();
-        setPlayerList(response.data.items);
-      } catch (e) {
-        console.log(e);
-      } finally {
-        setLoading(false);
-      }
-    };
+    setLoading(true);
+    try {
+      youtube.mostPopular().then((response) => setPlayerList(response));
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
 
-    fetchData();
     dispatch(selectVideo(null));
   };
 

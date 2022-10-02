@@ -33,12 +33,13 @@ const Video = () => {
       <div className={styles.player}>
         <iframe
           id="ytplayer"
+          title="youtube player"
           type="text/html"
           width="100%"
           height="600"
           src={'https://www.youtube.com/embed/' + id + '?autoplay=1'}
-          frameborder="0"
-          allowfullscreen
+          frameBorder="0"
+          allowFullScreen
         ></iframe>
       </div>
       <div className={styles.contents}>
@@ -46,7 +47,11 @@ const Video = () => {
           {tags &&
             tags
               .filter((tag, index) => index < 5)
-              .map((tag) => <span className={styles.tag}>{'#' + tag}</span>)}
+              .map((tag) => (
+                <span className={styles.tag} key={tag}>
+                  {'#' + tag}
+                </span>
+              ))}
         </div>
         <div className={styles.title}>{title}</div>
         <div>{channelTitle}</div>

@@ -1,19 +1,22 @@
-import axios from 'axios';
-
-const baseUrl = 'https://www.googleapis.com/youtube/v3/';
 class Youtube {
-  constructor(key) {
-    this.key = key;
+  constructor(httpClient) {
+    this.youtube = httpClient;
   }
 
   /**
    * 첫 화면에 가장인기있는 영상 25개 보여주는 메서드
    * @returns 가장인기있는 영상 25개 data를 담은 object
    */
-  mostPopular() {
-    return axios.get(
-      `${baseUrl}videos?part=snippet&chart=mostPopular&maxResults=25&key=${this.key}`,
-    );
+  async mostPopular() {
+    const response = await this.youtube.get('videos', {
+      params: {
+        part: 'snippet',
+        chart: 'mostPopular',
+        maxResults: '25',
+      },
+    });
+
+    return response.data.items;
   }
 
   /**
@@ -21,17 +24,24 @@ class Youtube {
    * @param {*} value 검색어
    * @returns 검색어에 해당하는 영상 25개 data를 담은 object
    */
-  search(value) {
-    return axios
-      .get(
-        `${baseUrl}search?part=snippet&maxResults=25&key=${this.key}&q=${value}&type=video`,
-      )
+  async search(value) {
+    const reponse = await this.youtube
+      .get('search', {
+        params: {
+          part: 'snippet',
+          maxResults: '25',
+          type: 'video',
+          q: value,
+        },
+      })
       .then((results) =>
         results.data.items.map((item) => ({
           ...item,
           id: item.id.videoId,
         })),
       );
+
+    return reponse;
   }
 }
 
