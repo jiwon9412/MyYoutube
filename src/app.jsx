@@ -60,7 +60,7 @@ const App = ({ youtube }) => {
       }
     };
     getPopularData();
-  }, [youtube]);
+  }, []);
 
   /**
    * 로고 클릭 시 첫 화면으로 돌아오기
