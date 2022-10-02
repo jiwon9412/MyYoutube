@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jiwon9412/MyYoutube.git/static/css/main.8e897fdf.css",
+    "main.js": "/jiwon9412/MyYoutube.git/static/js/main.40f262aa.js",
+    "index.html": "/jiwon9412/MyYoutube.git/index.html",
+    "main.8e897fdf.css.map": "/jiwon9412/MyYoutube.git/static/css/main.8e897fdf.css.map",
+    "main.40f262aa.js.map": "/jiwon9412/MyYoutube.git/static/js/main.40f262aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e897fdf.css",
+    "static/js/main.40f262aa.js"
+  ]
+}
